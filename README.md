@@ -21,4 +21,14 @@ This repository contains all the code and instructions necessary to set up a Ras
 
 
 ## Begin Here! ##
-***Step 1***
+***Step 1:*** Before loading the assistant to the Pi, note down the 'card number' and 'device number' of both your mic and speaker. These will be found using: 
+
+- $ arecord -l
+
+and
+
+- $ aplay -l
+
+*note:* the aux port (3.5mm jack) will usually be labelled as 'Analog'. 
+
+***Step 2:***
