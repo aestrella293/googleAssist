@@ -1,4 +1,5 @@
 # EL2020 Final Project
-## googleAssist
+## Google Assistant ##
+
 Professor: Joshua Simons
 Student: Alexander Estrella
