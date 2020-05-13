@@ -2,5 +2,4 @@
 ## googleAssist
 
 Professor: Joshua Simons
-
 Student: Alexander Estrella
