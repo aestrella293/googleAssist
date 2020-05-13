@@ -1,4 +1,5 @@
-# googleAssist
-EL2020 final project 
+#EL2020 Final Project
+##googleAssist
 
-this is a new readme file updated 5/10/2020
+Professor: Joshua Simons
+Student: Alexander Estrella
