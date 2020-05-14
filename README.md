@@ -53,10 +53,27 @@ Search for and enable the Google Assistant API.
 On the next page, you only need to confirm the email being used with this project. Then click *'Save'.* 
 
 ## Setup of the Pi ##
-***Step 1:*** Before loading the assistant to the Pi, note down the 'card number' and 'device number' of both your mic and speaker. These will be found using: 
+***Step 1:*** Before loading the assistant to the Pi, note down the 'card number' and 'device number' of both your mic and speaker (if ti is plugged in by USB). These will be found using: `$ arecord -l` and `$ aplay -l`
 
-'$ arecord -l' and '$ aplay -l'
+_**note:** the aux port (3.5mm jack) may be labelled as 'Analog'._
 
-*note:* the aux port (3.5mm jack) will usually be labelled as 'Analog'. 
-
-***Step 2:*** Make a file named ".asoundrc" 
+***Step 2:*** Make a file named '.asoundrc' in your home directory with the following code:
+```
+pcm.!default {
+  type asym
+  capture.pcm "mic"
+  playback.pcm "speaker"
+}
+pcm.mic {
+  type plug
+  slave {
+    pcm "hw:[card number],[device number]"
+  }
+}
+pcm.speaker {
+  type plug
+  slave {
+    pcm "hw:[card number],[device number]"
+  }
+}
+```
