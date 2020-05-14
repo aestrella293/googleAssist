@@ -40,7 +40,7 @@ Select *'Register Model'* on the next page.
 
 The device type should be a *'Speaker'*.
 
-**Make sure you download the 'Oauth 2.0 credentials' to your Pi. You may download them to your PC but they must be moved to the Pi later.** 
+**Make sure you download the 'Oauth_2.0_credentials.json' file to your Pi. You may download them to your PC but they must be moved to the Pi later. Make sure they are in the '/home/pi' directory.** 
 
 For this project, select the *'On/Off'* trait.
 
@@ -97,64 +97,20 @@ And `$ sudo apt-get install portaudio19-dev libffi-dev libssl-dev` to install  t
 
 ***Step 6:*** Now to install the project that was created through the Google console. Issue the command `$ python -m pip install --upgrade google-assistant-sdk[samples]`.
 
-Now the Raspberry Pi has all its necessary code to function with the traits given earlier. However in order to 
+Now the Raspberry Pi has all its necessary code to function with the traits given earlier. However, in order to actually use it you have to link the OAuth Credentials that was made earlier to link the Pi to the authorized account. This will require one more tool. Issue `python -m pip install --upgrade google-auth-oauthlib[tool]` to downloadd the tool.
 
+To call the tool use:
 
+`google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk -prototype --save --headless --client-secret /home/pi/<credentials>.json`
 
+The output of this command will be a URL that you can paste into your browser if you are using a SSH terminal (otherwise if you dont have access to the browser on your Pi...you will have to manually type it...i'm sorry).
 
+This will bring you to a site where wou can authenticate that the email you are authorizing is really you, and click 'Allow'. The following string of characters will be the code you need to copy into your Pi. It should successfully terminate after you enter this code.
 
+## Using the Google Assistant ##
+By this point the setup of the Pi is complete!. To use the newly made assistant, issue:
+`googlesamples-assistant-pushtotalk --project-id <project-id> -- device-model-id <model-id>`
 
+The fields 'project id' and 'model id' are filled in with those id's found on https://console.developers.google.com/apis.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+When you issue the command, the Pi will attempt to verify the id's and then respond with "Press Enter to Send a new Request". When you press enter the mic will be active and you can then speak a command for the assistant to perform.
