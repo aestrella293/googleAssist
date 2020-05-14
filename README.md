@@ -20,28 +20,42 @@ This repository contains all the code and instructions necessary to set up a Ras
 - A Google account to link the project
 
 ## Getting approval from Google ##
-***Step 1:*** From https://console.actions.google.com/ create a new Project. For this project I used 'el2020ga'.
+This process can be performed on the Raspberry Pi itself or on a seperate PC. The credentials would have to be moved onto the Pi itself later before continuing.
 
-***Step 2:*** A Google project can come inn many forms (games, apps, smart home,...) we will choose *'Device Resigstration'* to register our Raspberry Pi with Google. 
+***Step 1:*** Before anything, go to https://myaccount.google.com/activitycontrols.
 
-Select *'register model'* on the next page. 
+Make sure the following controls are enabled:
+- Web & App activity
+- Location History
+- Device Information
+- Voices & Audio Activity
+
+This will allow the assistant to perform its basic functions. 
+
+***Step 2:*** From https://console.actions.google.com/ create a new Project. For this project I used 'el2020ga'.
+
+***Step 3:*** A Google project can come inn many forms (games, apps, smart home,...) we will choose *'Device Resigstration'* to register our Raspberry Pi with Google. 
+
+Select *'Register Model'* on the next page. 
 
 The device type should be a *'Speaker'*.
 
 **Make sure you download the 'Oauth 2.0 credentials' to your Pi. You may download them to your PC but they must be moved to the Pi later.** 
 
-For this project the only trait selected was the *'On/Off'* trait.
+For this project, select the *'On/Off'* trait.
 
-***Step 3:*** Next, go to https://console.developers.google.com/apis
+***Step 4:*** Next, go to https://console.developers.google.com/apis and select *'Enable Apps and Services'.*
+
+Search for and enable the Google Assistant API.
+
+***Step 5:*** Use the tab bar to go to the *'OAuth Consent Screen'* and designate your project as *'External'* on the next screen.
+
+On the next page, you only need to confirm the email being used with this project. Then click *'Save'.* 
 
 ## Setup of the Pi ##
 ***Step 1:*** Before loading the assistant to the Pi, note down the 'card number' and 'device number' of both your mic and speaker. These will be found using: 
 
-- $ arecord -l
-
-and
-
-- $ aplay -l
+'$ arecord -l' and '$ aplay -l'
 
 *note:* the aux port (3.5mm jack) will usually be labelled as 'Analog'. 
 
