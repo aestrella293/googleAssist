@@ -114,3 +114,9 @@ By this point the setup of the Pi is complete!. To use the newly made assistant,
 The fields 'project id' and 'model id' are filled in with those id's found on https://console.developers.google.com/apis.
 
 When you issue the command, the Pi will attempt to verify the id's and then respond with "Press Enter to Send a new Request". When you press enter the mic will be active and you can then speak a command for the assistant to perform.
+
+Congratulations you now have a Google Assistant on your Raspberry Pi!
+
+**OPTIONAL**
+
+Since we are using a Raspberry Pi, we can use the GPIO from inside the assistant.
