@@ -122,7 +122,7 @@ Congratulations you now have a Google Assistant on your Raspberry Pi!
 
 Since we are using a Raspberry Pi, we can use the GPIO from inside the assistant. To Start you will need to setup your breadboard as shown above with an LED in series with a properly measured resistor for that LED.
 
-Next you will need to clone the repository:`https://github.com/googlesamples/assistant-sdk-python.git`
+Next you will need to clone the repository:`git clone https://github.com/googlesamples/assistant-sdk-python.git`
 
 This repository has the sample codes from Google to perform extra tasks like utilizing the GPIO (for the 'On/Off' trait) and the other traits that weren't enabled earlier.
 
