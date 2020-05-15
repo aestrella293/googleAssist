@@ -117,7 +117,7 @@ When you issue this command, the Pi will attempt to verify the id's and then res
 
 Congratulations you now have a Google Assistant on your Raspberry Pi!
 
-**OPTIONAL**
+## Using the GPIO ##
 ![Image of LED setup](https://developers.google.com/assistant/sdk/images/rpi3_schematics.png)
 
 Since we are using a Raspberry Pi, we can use the GPIO from inside the assistant. To Start you will need to setup your breadboard as shown above with an LED in series with a properly measured resistor for that LED.
