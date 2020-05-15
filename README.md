@@ -122,13 +122,13 @@ Congratulations you now have a Google Assistant on your Raspberry Pi!
 
 Since we are using a Raspberry Pi, we can use the GPIO from inside the assistant. To Start you will need to setup your breadboard as shown above with an LED in series with a properly measured resistor for that LED.
 
-Next you will need to clone the repository:`git clone https://github.com/googlesamples/assistant-sdk-python.git`
+***Step 1:*** Next you will need to clone the repository:`git clone https://github.com/googlesamples/assistant-sdk-python.git`
 
 This repository has the sample codes from Google to perform extra tasks like utilizing the GPIO (for the 'On/Off' trait) and the other traits that weren't enabled earlier.
 
 To utilize the GPIO, issue `cd assistant-sdk-python/google-assistant-sdk/googlesamples/assistant/grpc` and `nano pushtotalk.py`. If you notice this is the folder that is called when we want to access the assistant. 
 
-At the top of the document next to the other imports, add this statement:
+***Step 2:*** At the top of the document underneath the other 'import' dependencies, add this statement:
 `import RPi.GPIO as GPIO`.
 
 Scroll through the file until you find the sections labelled `@device_handler.command('action.devices.commands.OnOff')`. This is where we will modify the code.
@@ -154,43 +154,3 @@ The first 3 lines will tell our assistant where to find the GPIO addresses and *
 ```
 
 After that, you are all set! You can issue `$ python pushtotalk.py` from the cuurrent directory in order to run the program to test it or issue the standard command that we used before. The voice command to turn on the LED is "turn on". The assistant will transcribe this and use it as the switch to issue the command on the terminal.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
