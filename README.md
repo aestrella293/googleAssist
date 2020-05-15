@@ -113,10 +113,84 @@ By this point the setup of the Pi is complete!. To use the newly made assistant,
 
 The fields 'project id' and 'model id' are filled in with those id's found on https://console.developers.google.com/apis.
 
-When you issue the command, the Pi will attempt to verify the id's and then respond with "Press Enter to Send a new Request". When you press enter the mic will be active and you can then speak a command for the assistant to perform.
+When you issue this command, the Pi will attempt to verify the id's and then respond with "Press Enter to Send a new Request". When you press enter the mic will be active and you can then speak a command for the assistant to perform.
 
 Congratulations you now have a Google Assistant on your Raspberry Pi!
 
 **OPTIONAL**
+![Image of LED setup](https://developers.google.com/assistant/sdk/images/rpi3_schematics.png)
 
-Since we are using a Raspberry Pi, we can use the GPIO from inside the assistant.
+Since we are using a Raspberry Pi, we can use the GPIO from inside the assistant. To Start you will need to setup your breadboard as shown above with an LED in series with a properly measured resistor for that LED.
+
+Next you will need to clone the repository:`https://github.com/googlesamples/assistant-sdk-python.git`
+
+This repository has the sample codes from Google to perform extra tasks like utilizing the GPIO (for the 'On/Off' trait) and the other traits that weren't enabled earlier.
+
+To utilize the GPIO, issue `cd assistant-sdk-python/google-assistant-sdk/googlesamples/assistant/grpc` and `nano pushtotalk.py`. If you notice this is the folder that is called when we want to access the assistant. 
+
+At the top of the document next to the other imports, add this statement:
+`import RPi.GPIO as GPIO`.
+
+Scroll through the file until you find the sections labelled `@device_handler.command('action.devices.commands.OnOff')`. This is where we will modify the code.
+
+The first 3 lines will tell our assistant where to find the GPIO addresses and *GPIO.setup*  defines which pin we want to use along with how we would like it to act. BCM is a numbering schema; while we are typing 'pin 24, out' we are really saying 'physical pin 18 is the output pin'.
+
+* *Use spaces instead of tabs to indent as the whole file is formatted this way and it will return an error if it is not formatted the same way.*
+
+```
+    device_handler = device_helpers.DeviceRequestHandler(device_id)
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(24, GPIO.OUT, initial=GPIO.LOW)
+    @device_handler.command('action.devices.commands.OnOff')
+    def onoff(on):
+        if on:
+            logging.info('Turning device on')
+            GPIO.output(24, 1)
+            logging.info('device is on')
+        else:
+            logging.info('Turning device off')
+            GPIO.output(24, 0)
+            logging.info('device is off')
+```
+
+After that, you are all set! You can issue `$ python pushtotalk.py` from the cuurrent directory in order to run the program to test it or issue the standard command that we used before. The voice command to turn on the LED is "turn on". The assistant will transcribe this and use it as the switch to issue the command on the terminal.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
