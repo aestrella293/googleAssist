@@ -433,6 +433,7 @@ def main(api_endpoint, credentials, project_id,
         else:
             logging.info('Turning device off')
             GPIO.output(24, 0)
+            logging.info('device is off')
 
     @device_handler.command('com.example.commands.BlinkLight')
     def blink(speed, number):
